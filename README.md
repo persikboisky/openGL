@@ -1,5 +1,7 @@
 ## Build in Windows
- >[!NOTE]
+
+>[!NOTE]
 > Requirement:
 >
-> vcpkg, CMake
+>Visual studio
+
