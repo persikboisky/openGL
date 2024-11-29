@@ -36,14 +36,19 @@
 >```
 
 ## система Window
-
-Window::initializateWindow(name, width, height) - Создаёт окно
 ```sh
+Window::initializateWindow(name, width, height) - Создаёт окно
 name - заголовок окна(char*)
 width - ширина окна(int)
 height - высота окна(int)
 ```
+```sh
 Window::terminate() - удоляет окно
+Window::isCloseWindow() - возращает true при закрытие окна
+
+Window::setShouldClose(flag)
+если в flag передать true то окно закроется
+```
 
 
 
