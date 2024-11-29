@@ -1,5 +1,5 @@
-Windows:
-советую использовать Visual studio (openGL.sln открываете этот фаил, и всё можно компилировать)
-
-MacOS, linux:
-хуй пососите
+## Build in Windows
+ >[!NOTE]
+> Requirement:
+>
+> vcpkg, CMake
