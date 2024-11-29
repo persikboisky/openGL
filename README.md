@@ -28,7 +28,7 @@
 > #define VERSION_MINOR второе число
 > ```
 
-## Список возможностей
+## Системы движка
 >[!NOTE]
 >```sh
 > вся ниже предоставленная информация расчитана на то, что вы будете использовать функции в main
@@ -54,7 +54,6 @@ Window::swapBuffer() - сменяет буфер
 > [!TIP]
 > в openGL двойная буфиризация, тоесть на одном мы рисуем, а второй выводится на экран 
 
-
 ## Система Shader
 ```sh
 CreateShaderProgram::CreateShaderProgram названиеШейдернойПрограммы(const char* vert, const char* frag)
@@ -74,7 +73,7 @@ JSON::getValueFromJSON(const char* PATH, const char* object)
 возврощает значение записанное в json работает только с int, принимает путь и название объекта
 
 ```
-> [!WARNING]
+> [!NOTE]
 > ```sh
 > файл должен иметь такую структуру
 >
