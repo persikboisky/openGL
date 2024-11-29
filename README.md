@@ -12,3 +12,12 @@
 > [!WARNING]
 >
 > проект работает только на winX64 и openGL v4.6
+
+> [!TIP]
+>
+> ```sh
+> Чтобы указать другую версию openGL заходим в файл Window.cpp (src/window/Window.cpp)
+> Находи эти строки (они вначале)
+> #define VERSION_MAJOR первое число
+> #define VERSION_MINOR второе число
+> ```
