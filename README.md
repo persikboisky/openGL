@@ -1,3 +1,8 @@
+## Build in macOS and Linux
+>[!NOTE]
+>
+> ебитесь сами
+
 ## Build in Windows
 
 >[!NOTE]
