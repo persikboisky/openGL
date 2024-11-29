@@ -2,7 +2,7 @@
 >[!NOTE]
 >
 > я вам ни чем не помогу, могу дать только список нужных библиотек:
-> glew, glfw, opengl32, glm, stb, nlohmann
+> glew, glfw, opengl32(должна устанавливаться с драйверами на гп), glm, stb, nlohmann
 
 
 ## Build in Windows
