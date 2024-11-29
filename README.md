@@ -77,6 +77,8 @@ JSON::getValueFromJSON(const char* PATH, const char* object)
 > [!WARNING]
 > ```sh
 > файл должен иметь такую структуру
+>
+> 
 > {
 >  "название объекта": значениеТипа(int),
 >}
