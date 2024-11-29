@@ -37,13 +37,14 @@
 
 ## система Window
 
-Window::initializateWindow(name, width, height);
+Window::initializateWindow(name, width, height) - Создаёт окно
 ```sh
-Создаёт окно
 name - заголовок окна(char*)
 width - ширина окна(int)
 height - высота окна(int)
 ```
+Window::terminate() - удоляет окно
+
 
 
 
