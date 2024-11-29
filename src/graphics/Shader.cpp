@@ -1,0 +1,159 @@
+/*
+ * Shader.cpp
+ *
+ * Created on Nov 24, 2024
+ *         Author: persikboisky
+ */
+
+#include "Shader.hpp"
+
+#include <GL/glew.h>
+
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <iostream>
+
+unsigned int CreateShaderProgram::id;
+GLuint CreateShaderProgram::locate;
+// GLuint CreateShaderProgram::BlockIndex;
+
+static std::string readFile(const char* filename)
+{
+    std::string text = "";
+    std::ifstream file(filename, std::ios::in); // Открываем файл на чтение
+    // Если файл доступен и успешно открыт
+    if (file.is_open())
+    {
+        std::stringstream sstr; // Буфер для чтения
+        sstr << file.rdbuf();   // Считываем файл
+        text = sstr.str();      // Преобразуем буфер к строке
+        file.close();           // Закрываем файл
+    }
+    else
+    {
+        std::cerr << "Failed read file: " << filename << std::endl;
+    }
+
+    file.close();
+
+    return text;
+}
+
+GLuint CreateShaderProgram::LoadShaders(const char* vertex_file, const char* fragment_file)
+{
+    // Создание дескрипторов вершинного и фрагментного шейдеров
+    GLuint vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
+    GLuint fragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
+
+    // Переменные под результат компиляции
+    GLint result = GL_FALSE;
+    int infoLogLength;
+
+    // Считываем текст вершинного шейдера
+    std::string code = readFile(vertex_file);
+    const char* pointer = code.c_str(); // Преобразование к указателю на const char, так как функция принимает массив си-строк
+
+    // Компиляция кода вершинного шейдера
+    glShaderSource(vertexShaderID, 1, &pointer, NULL);
+    glCompileShader(vertexShaderID);
+
+    // Проверка результата компиляции
+    glGetShaderiv(vertexShaderID, GL_COMPILE_STATUS, &result);
+    glGetShaderiv(vertexShaderID, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if (infoLogLength > 0)
+    {
+        char* errorMessage = new char[infoLogLength + 1];
+        glGetShaderInfoLog(vertexShaderID, infoLogLength, NULL, errorMessage);
+        std::cerr << errorMessage;
+        delete[] errorMessage;
+    }
+    else
+    {
+        std::cout << "OK compile shader: " << vertex_file << std::endl;
+    }
+
+    // Считываем текст фрагментного шейдера
+    code = readFile(fragment_file);
+    pointer = code.c_str(); // Преобразование к указателю на const char, так как функция принимает массив си-строк
+
+    // Компиляция кода фрагментного шейдера
+    glShaderSource(fragmentShaderID, 1, &pointer, NULL);
+    glCompileShader(fragmentShaderID);
+
+    // Проверка результата компиляции
+    glGetShaderiv(fragmentShaderID, GL_COMPILE_STATUS, &result);
+    glGetShaderiv(fragmentShaderID, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if (infoLogLength > 0)
+    {
+        char* errorMessage = new char[infoLogLength + 1];
+        glGetShaderInfoLog(fragmentShaderID, infoLogLength, NULL, errorMessage);
+        std::cout << errorMessage;
+        delete[] errorMessage;
+    }
+    else
+    {
+        std::cout << "OK compile shader: " << fragment_file << std::endl;
+    }
+
+    // Привязка скомпилированных шейдеров
+    GLuint programID = glCreateProgram();
+    glAttachShader(programID, vertexShaderID);
+    glAttachShader(programID, fragmentShaderID);
+    glLinkProgram(programID);
+
+    // Проверка программы
+    glGetProgramiv(programID, GL_LINK_STATUS, &result);
+    glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if (infoLogLength > 0)
+    {
+        char* errorMessage = new char[infoLogLength + 1];
+        glGetProgramInfoLog(programID, infoLogLength, NULL, errorMessage);
+        std::cout << errorMessage;
+        delete[] errorMessage;
+    }
+
+    // Освобождение дескрипторов шейдеров
+    glDeleteShader(vertexShaderID);
+    glDeleteShader(fragmentShaderID);
+
+    return programID;
+}
+
+CreateShaderProgram::CreateShaderProgram(const char* vert, const char* frag)
+{
+    CreateShaderProgram::id = CreateShaderProgram::LoadShaders(vert, frag);
+}
+
+CreateShaderProgram::~CreateShaderProgram()
+{
+    CreateShaderProgram::Delete();
+}
+
+void CreateShaderProgram::use()
+{
+    glUseProgram(CreateShaderProgram::id);
+}
+
+void CreateShaderProgram::Delete()
+{
+    // glDeleteProgram(CreateShaderProgram::id);
+}
+
+void CreateShaderProgram::setValueUniformF(const float value, const char* name)
+{
+    CreateShaderProgram::locate = glGetUniformLocation(CreateShaderProgram::id, name);
+    if (CreateShaderProgram::locate >= 0)
+    {
+        glUniform1f(CreateShaderProgram::locate, GLfloat(value));
+    }
+    else
+    {
+        std::cerr << "Failed locate Uniform" << std::endl;
+    }
+}
+
+// void CreateShaderProgram::setUniformBlockID(const char* name)
+//{
+//     CreateShaderProgram::BlockIndex = glGetUniformBlockIndex(CreateShaderProgram::id, name);
+// }

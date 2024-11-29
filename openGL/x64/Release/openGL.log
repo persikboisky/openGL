@@ -1,0 +1,8 @@
+﻿  VAO.cpp
+openGL\x64\Release\glm.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
+  Создание кода
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+W:\code\c++\openGL\src\window\Window.cpp(70): warning C4715: Window::initializateWindow: значение возвращается не при всех путях выполнения
+  All 1305 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Создание кода завершено
+  openGL.vcxproj -> W:\code\c++\openGL\x64\Release\openGL.exe
