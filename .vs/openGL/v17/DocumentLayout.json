@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "W:\\code\\c\u002B\u002B\\openGL\\",
+  "WorkspaceRootPath": "C:\\Users\\kisly\\Downloads\\openGL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|C:\\Users\\kisly\\Downloads\\openGL\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -24,11 +24,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\kisly\\Downloads\\openGL\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
-              "ToolTip": "W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp",
+              "ToolTip": "C:\\Users\\kisly\\Downloads\\openGL\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-27T12:01:56.34Z",
               "EditorCaption": ""

@@ -135,6 +135,7 @@
     <ClCompile Include="lib\include\GLM\detail\glm.cpp" />
     <ClCompile Include="lib\include\GLM\glm.cppm" />
     <ClCompile Include="src\graphics\Shader.cpp" />
+    <ClCompile Include="src\graphics\VAO.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\window\Window.cpp" />
   </ItemGroup>
@@ -486,6 +487,7 @@
     <ClInclude Include="lib\include\nlohmann\thirdparty\hedley\hedley.hpp" />
     <ClInclude Include="lib\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
     <ClInclude Include="src\graphics\Shader.hpp" />
+    <ClInclude Include="src\graphics\VAO.hpp" />
     <ClInclude Include="src\window\Window.hpp" />
   </ItemGroup>
   <ItemGroup>
