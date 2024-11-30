@@ -118,14 +118,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>W:\code\c++\openGL\lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)lib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>W:\code\c++\openGL\lib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -135,9 +135,9 @@
     <ClCompile Include="lib\include\GLM\detail\glm.cpp" />
     <ClCompile Include="lib\include\GLM\glm.cppm" />
     <ClCompile Include="src\graphics\Shader.cpp" />
-    <ClCompile Include="src\graphics\VAO.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\window\Window.cpp" />
+    <ClCompile Include="src\graphics\VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="lib\lib\glew32.lib" />
@@ -487,8 +487,8 @@
     <ClInclude Include="lib\include\nlohmann\thirdparty\hedley\hedley.hpp" />
     <ClInclude Include="lib\include\nlohmann\thirdparty\hedley\hedley_undef.hpp" />
     <ClInclude Include="src\graphics\Shader.hpp" />
-    <ClInclude Include="src\graphics\VAO.hpp" />
     <ClInclude Include="src\window\Window.hpp" />
+    <ClInclude Include="src\graphics\VAO.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\config.json" />
