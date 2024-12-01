@@ -14,8 +14,8 @@
 #include <sstream>
 #include <iostream>
 
-unsigned int CreateShaderProgram::id;
-GLuint CreateShaderProgram::locate;
+unsigned int Shader::id;
+GLuint Shader::locate;
 // GLuint CreateShaderProgram::BlockIndex;
 
 static std::string readFile(const char* filename)
@@ -40,7 +40,7 @@ static std::string readFile(const char* filename)
     return text;
 }
 
-GLuint CreateShaderProgram::LoadShaders(const char* vertex_file, const char* fragment_file)
+GLuint LoadShaders(const char* vertex_file, const char* fragment_file)
 {
     // Создание дескрипторов вершинного и фрагментного шейдеров
     GLuint vertexShaderID = glCreateShader(GL_VERTEX_SHADER);
@@ -120,32 +120,32 @@ GLuint CreateShaderProgram::LoadShaders(const char* vertex_file, const char* fra
     return programID;
 }
 
-CreateShaderProgram::CreateShaderProgram(const char* vert, const char* frag)
+Shader::Shader(const char* vert, const char* frag)
 {
-    CreateShaderProgram::id = CreateShaderProgram::LoadShaders(vert, frag);
+    Shader::id = LoadShaders(vert, frag);
 }
 
-CreateShaderProgram::~CreateShaderProgram()
+Shader::~Shader()
 {
-    CreateShaderProgram::Delete();
+    Shader::Delete();
 }
 
-void CreateShaderProgram::use()
+void Shader::use()
 {
-    glUseProgram(CreateShaderProgram::id);
+    glUseProgram(Shader::id);
 }
 
-void CreateShaderProgram::Delete()
+void Shader::Delete()
 {
-    // glDeleteProgram(CreateShaderProgram::id);
+    glDeleteProgram(Shader::id);
 }
 
-void CreateShaderProgram::setValueUniformF(const float value, const char* name)
+void Shader::setValueUniformF(const float value, const char* name)
 {
-    CreateShaderProgram::locate = glGetUniformLocation(CreateShaderProgram::id, name);
-    if (CreateShaderProgram::locate >= 0)
+    Shader::locate = glGetUniformLocation(Shader::id, name);
+    if (Shader::locate >= 0)
     {
-        glUniform1f(CreateShaderProgram::locate, GLfloat(value));
+        glUniform1f(Shader::locate, GLfloat(value));
     }
     else
     {
@@ -153,7 +153,7 @@ void CreateShaderProgram::setValueUniformF(const float value, const char* name)
     }
 }
 
-// void CreateShaderProgram::setUniformBlockID(const char* name)
-//{
-//     CreateShaderProgram::BlockIndex = glGetUniformBlockIndex(CreateShaderProgram::id, name);
-// }
+void Shader::setMatrixUniform(glm::mat4 matrix, const char* name)
+{
+
+}

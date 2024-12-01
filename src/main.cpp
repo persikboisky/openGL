@@ -23,7 +23,8 @@ int main()
 {
 
 	Window::initializateWindow(WINDOW_NAME, WINDOW_WIDTH, WINDOW_HEIGHT);
-	CreateShaderProgram First("./assets/shaders/main.glslv", "./assets/shaders/main.glslf");
+	Event::Init();
+	Shader First("./assets/shaders/main.glslv", "./assets/shaders/main.glslf");
 	VAO objVAO;
 
 	objVAO.addVBO(

@@ -10,6 +10,16 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
+void window_size_callback(GLFWwindow* window, int width, int height)
+{
+	glViewport(0, 0, width, height);
+}
+
+void Event::Init()
+{
+	glfwSetWindowSizeCallback(Window::window, window_size_callback);
+}
+
 void Event::update()
 {
 	glfwPollEvents();

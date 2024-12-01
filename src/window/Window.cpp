@@ -7,6 +7,7 @@
 
 #define VERSION_MAJOR 4
 #define VERSION_MINOR 6
+#define WINDOW_RESIZABLE true
 
 #include "Window.hpp"
 #include <GL/glew.h>
@@ -29,7 +30,7 @@ int Window::initializateWindow(const char* title, int width, int height)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, VERSION_MAJOR);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, VERSION_MINOR);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
+	glfwWindowHint(GLFW_RESIZABLE, WINDOW_RESIZABLE);
 
 	window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 	if (window == nullptr)

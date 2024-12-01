@@ -8,23 +8,24 @@
 #ifndef GRAPHICS_SHADER_HPP_
 #define GRAPHICS_SHADER_HPP_
 
+#include <GLM/glm.hpp>
+
 typedef unsigned int GLuint;
 
-class CreateShaderProgram
+class Shader
 {
 private:
 	static unsigned int id;
 	static GLuint locate;
-	/*static GLuint BlockIndex;*/
 
 public:
-	static GLuint LoadShaders(const char* vertex_file, const char* fragment_file);
 	static void use();
 	static void Delete();
 	static void setValueUniformF(const float value, const char* name);
+	static void setMatrixUniform(glm::mat4 matrix, const char* name);
 
-	CreateShaderProgram(const char* frag, const char* vert);
-	~CreateShaderProgram();
+	Shader(const char* frag, const char* vert);
+	~Shader();
 };
 
 #endif // GRAPHYCS_SHADER_HPP_

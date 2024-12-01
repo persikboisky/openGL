@@ -10,6 +10,7 @@
 
 namespace Event
 {
+	void Init();
 	void update();
 	static struct Mouse;
 };
