@@ -18,6 +18,8 @@ struct Event::Mouse
 {
 	static double GetMouseCordY();
 	static double GetMouseCordX();
+	static bool GetMouseLeftButton();
+	static bool GetMouseRightButton();
 };
 
 #endif // !WINDOW_EVENT_HPP_

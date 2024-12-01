@@ -28,3 +28,13 @@ double Event::Mouse::GetMouseCordY()
 	glfwGetCursorPos(Window::window, &mouseX, &mouseY);
 	return mouseY;
 }
+
+bool Event::Mouse::GetMouseLeftButton()
+{
+	return glfwGetMouseButton(Window::window, GLFW_MOUSE_BUTTON_LEFT);
+}
+
+bool Event::Mouse::GetMouseRightButton()
+{
+	return glfwGetMouseButton(Window::window, GLFW_MOUSE_BUTTON_RIGHT);
+}
