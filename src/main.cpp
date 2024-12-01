@@ -1,8 +1,10 @@
 #define WINDOW_NAME "openGL"
 
 #include <GL/glew.h>
+#include <iostream>
 
 #include "window/Window.hpp"
+#include "window/Event.hpp"
 #include "graphics/Shader.hpp"
 #include "graphics/VAO.hpp"
 #include "file/JSON.hpp"
@@ -40,6 +42,8 @@ int main()
 	 
 	while (!Window::isCloseWindow())
 	{
+
+		Event::update();
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		First.use();

@@ -77,7 +77,6 @@ void Window::terminate()
 
 bool Window::isCloseWindow()
 {
-	glfwPollEvents();
 	return glfwWindowShouldClose(window);
 }
 

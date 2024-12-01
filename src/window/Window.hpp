@@ -12,9 +12,8 @@ class GLFWwindow;
 
 struct Window
 {
-private:
-	static GLFWwindow* window;
 public:
+	static GLFWwindow* window;
 	static int initializateWindow(const char* title, int width, int height);
 	static void terminate();
 	static void swapBuffer();

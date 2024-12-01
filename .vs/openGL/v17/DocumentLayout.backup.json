@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "W:\\code\\c\u002B\u002B\\openGL\\",
+  "WorkspaceRootPath": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\graphics\\VAO.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\window\\Event.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\graphics\\VAO.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\window\\Window.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{76D0459D-5163-488D-982D-F68545D4F7F4}|openGL.vcxproj|solutionrelative:src\\window\\Event.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,36 +35,51 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "VAO.cpp",
-              "DocumentMoniker": "W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.cpp",
-              "RelativeDocumentMoniker": "src\\graphics\\VAO.cpp",
-              "ToolTip": "W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.cpp",
-              "RelativeToolTip": "src\\graphics\\VAO.cpp",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAADoAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-30T10:22:23.481Z"
+              "Title": "Window.hpp",
+              "DocumentMoniker": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Window.hpp",
+              "RelativeDocumentMoniker": "src\\window\\Window.hpp",
+              "ToolTip": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Window.hpp",
+              "RelativeToolTip": "src\\window\\Window.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-12-01T10:47:51.525Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "VAO.hpp",
-              "DocumentMoniker": "W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.hpp",
-              "RelativeDocumentMoniker": "src\\graphics\\VAO.hpp",
-              "ToolTip": "W:\\code\\c\u002B\u002B\\openGL\\src\\graphics\\VAO.hpp",
-              "RelativeToolTip": "src\\graphics\\VAO.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAUAAAAAAAAAA==",
+              "Title": "Event.cpp",
+              "DocumentMoniker": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.cpp",
+              "RelativeDocumentMoniker": "src\\window\\Event.cpp",
+              "ToolTip": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.cpp",
+              "RelativeToolTip": "src\\window\\Event.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-12-01T10:23:23.986Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Event.hpp",
+              "DocumentMoniker": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.hpp",
+              "RelativeDocumentMoniker": "src\\window\\Event.hpp",
+              "ToolTip": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\window\\Event.hpp",
+              "RelativeToolTip": "src\\window\\Event.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-29T19:28:23.929Z"
+              "WhenOpened": "2024-12-01T10:23:21.231Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\main.cpp",
               "RelativeDocumentMoniker": "src\\main.cpp",
-              "ToolTip": "W:\\code\\c\u002B\u002B\\openGL\\src\\main.cpp",
+              "ToolTip": "C:\\Users\\kisly\\Downloads\\openGL-main\\openGL-main\\src\\main.cpp",
               "RelativeToolTip": "src\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAMAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-27T12:01:56.34Z",
               "EditorCaption": ""

@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\window\Event.cpp" />
     <ClCompile Include="src\file\PNG.cpp" />
     <ClCompile Include="src\file\JSON.cpp" />
     <ClCompile Include="lib\include\GLM\detail\glm.cpp" />
@@ -145,6 +146,7 @@
     <Library Include="lib\lib\glfw3dll.lib" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\window\Event.hpp" />
     <ClInclude Include="src\file\PNG.hpp" />
     <ClInclude Include="src\file\JSON.hpp" />
     <ClInclude Include="lib\include\GLFW\glfw3.h" />
