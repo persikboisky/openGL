@@ -7,16 +7,14 @@
 
 ## Build in Windows
 >[!NOTE]
-> Рекомендую:
+>[Билиотеки](https://github.com/persikboisky/libForOpengl)
 >
->Visual Studio
-
+> Рекомендую: Visual Studio
 ```sh
-1.библиотек: https://github.com/persikboisky/libForOpengl
-2.скачиваем библиотеки по выше предсатвленной сылке
-3.копируем папку lib в папку проекта
-4.открываем проект в VS (openGL.sln)
-5.запускаем
+1.скачиваем библиотеки по выше предсатвленной сылке
+2.копируем папку lib в папку проекта
+3.открываем проект в VS (openGL.sln)
+4.запускаем
 ```
 > [!WARNING]
 >
