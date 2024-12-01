@@ -56,7 +56,7 @@ Window::swapBuffer() - сменяет буфер
 
 ## Система Shader
 ```sh
-CreateShaderProgram::CreateShaderProgram названиеШейдернойПрограммы(const char* vert, const char* frag)
+Shader названиеШейдернойПрограммы(const char* vert, const char* frag)
 этот конструктор создаёт шейдерную программу, в него мы передаём путь к вершиному и фрагментному шейдеру
 
 названиеШейдернойПрограммы.use() - включает шейдерную программу
@@ -102,6 +102,9 @@ addVBO({
 
 ## Система Event
 ```sh
+Event::Init()
+нужно вызывать в main для нормальной работы системы Event
+
 Event::update() - обновляет буфер эвентов (проверяет эвенты)
 
 Event::Mouse::GetMouseCordY() - возращант позицию мышки по осиY
