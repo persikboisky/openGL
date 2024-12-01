@@ -7,14 +7,13 @@
 
 ## Build in Windows
 >[!NOTE]
->[Билиотеки](https://github.com/persikboisky/libForOpengl)
+> Рекомендую:
 >
-> Рекомендую: Visual Studio
+>Visual Studio
+
 ```sh
-1.скачиваем библиотеки по выше предсатвленной сылке
-2.копируем папку lib в папку проекта
-3.открываем проект в VS (openGL.sln)
-4.запускаем
+открываем проект в VS (openGL.sln)
+(в проекте все билиотеки настроены, поэтому от вас требуется только запустить)
 ```
 > [!WARNING]
 >
@@ -57,7 +56,7 @@ Window::swapBuffer() - сменяет буфер
 
 ## Система Shader
 ```sh
-Shader названиеШейдернойПрограммы(const char* vert, const char* frag)
+CreateShaderProgram::CreateShaderProgram названиеШейдернойПрограммы(const char* vert, const char* frag)
 этот конструктор создаёт шейдерную программу, в него мы передаём путь к вершиному и фрагментному шейдеру
 
 названиеШейдернойПрограммы.use() - включает шейдерную программу
@@ -103,9 +102,6 @@ addVBO({
 
 ## Система Event
 ```sh
-Event::Init()
-нужно вызывать в main для нормальной работы системы Event
-
 Event::update() - обновляет буфер эвентов (проверяет эвенты)
 
 Event::Mouse::GetMouseCordY() - возращант позицию мышки по осиY

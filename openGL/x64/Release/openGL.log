@@ -1,12 +1,20 @@
-﻿  Shader.cpp
-  main.cpp
-C:\Users\kisly\Downloads\openGL\src\window\Event.hpp(15,16): warning C4091: static : пропускается слева от "Event::Mouse", когда ни одна переменная не объявлена
+﻿  main.cpp
+W:\code\c++\openGL\src\window\Event.hpp(16,16): warning C4091: static : пропускается слева от "Event::Mouse", когда ни одна переменная не объявлена
   (компиляция исходного файла "src/main.cpp")
+  
+  Event.cpp
+W:\code\c++\openGL\src\window\Event.hpp(16,16): warning C4091: static : пропускается слева от "Event::Mouse", когда ни одна переменная не объявлена
+  (компиляция исходного файла "src/window/Event.cpp")
+  
+W:\code\c++\openGL\lib\include\GLFW\glfw3.h(1403,16): warning C4099: GLFWwindow: имя типа, ранее отображенное с помощью "class", теперь отображено с помощью "struct"
+  (компиляция исходного файла "src/window/Event.cpp")
+      W:\code\c++\openGL\src\window\Window.hpp(12,7):
+       см. объявление "GLFWwindow"
   
 openGL\x64\Release\glm.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
   Создание кода
-  3 of 1370 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
+  1 of 1405 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Создание кода завершено
-  openGL.vcxproj -> C:\Users\kisly\Downloads\openGL\x64\Release\openGL.exe
+  openGL.vcxproj -> W:\code\c++\openGL\x64\Release\openGL.exe

@@ -8,24 +8,27 @@
 #ifndef GRAPHICS_SHADER_HPP_
 #define GRAPHICS_SHADER_HPP_
 
-#include <GLM/glm.hpp>
+#include <glm/glm.hpp>
 
+// пред объявляем переменную из библиотеки glew
 typedef unsigned int GLuint;
 
+// создаём класс shader
 class Shader
 {
 private:
+	// пред объявляем переменную для хранения номера шейд-ной программы
 	static unsigned int id;
-	static GLuint locate;
 
 public:
-	static void use();
-	static void Delete();
-	static void setValueUniformF(const float value, const char* name);
-	static void setMatrixUniform(glm::mat4 matrix, const char* name);
+	// пред объявляем:
+	static void use();												   // функцию для включения шейд-ной программы
+	static void Delete();											   // функцию для удаления шейд-ной программы
+	static void setValueUniformF(const float value, const char *name); // функцию для передачи float uniform переменной в шейдер
+	static void setMatrixUniform(glm::mat4 matrix, const char *name);  // функцию для передачи matrix4 uniform переменной в шейдер
 
-	Shader(const char* frag, const char* vert);
-	~Shader();
+	Shader(const char *frag, const char *vert); // конструктор (принимает путь к фраг-му и верш-му шейдеру)
+	~Shader();									// деструктор
 };
 
 #endif // GRAPHYCS_SHADER_HPP_

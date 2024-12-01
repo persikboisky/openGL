@@ -1,5 +1,5 @@
 /*
- * Window.ñpp
+ * Window.ï¿½pp
  *
  * Created on December 01, 2024
  *         Author: persikboisky
@@ -10,9 +10,11 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
-void window_size_callback(GLFWwindow* window, int width, int height)
+void window_size_callback(GLFWwindow *window, int width, int height)
 {
 	glViewport(0, 0, width, height);
+	Window::WIDTH = width;
+	Window::HEIGHT = height;
 }
 
 void Event::Init()

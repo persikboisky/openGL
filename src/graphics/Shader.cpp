@@ -8,6 +8,7 @@
 #include "Shader.hpp"
 
 #include <GL/glew.h>
+#include <glm/gtc/type_ptr.hpp>
 
 #include <string>
 #include <fstream>
@@ -15,7 +16,7 @@
 #include <iostream>
 
 unsigned int Shader::id;
-GLuint Shader::locate;
+GLuint locate;
 // GLuint CreateShaderProgram::BlockIndex;
 
 static std::string readFile(const char* filename)
@@ -142,18 +143,27 @@ void Shader::Delete()
 
 void Shader::setValueUniformF(const float value, const char* name)
 {
-    Shader::locate = glGetUniformLocation(Shader::id, name);
-    if (Shader::locate >= 0)
+    locate = glGetUniformLocation(Shader::id, name);
+    if (locate >= 0)
     {
-        glUniform1f(Shader::locate, GLfloat(value));
+        glUniform1f(locate, GLfloat(value));
     }
     else
     {
-        std::cerr << "Failed locate Uniform" << std::endl;
+        std::cerr << "Failed locate Uniform: " << name << std::endl;
     }
 }
 
 void Shader::setMatrixUniform(glm::mat4 matrix, const char* name)
 {
-
+    locate = glGetUniformLocation(Shader::id, name);
+    locate = glGetUniformLocation(Shader::id, name);
+    if (locate >= 0)
+    {
+        glUniformMatrix4fv(locate, 1, GL_FALSE, glm::value_ptr(matrix));
+    }
+    else
+    {
+        std::cerr << "Failed locate Uniform: " << name << std::endl;
+    }
 }

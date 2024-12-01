@@ -5,19 +5,22 @@
  *         Author: persikboisky
  */
 
-#define VERSION_MAJOR 4
-#define VERSION_MINOR 6
-#define WINDOW_RESIZABLE true
+#define VERSION_MAJOR 4		  // первая цифра в версии openGL
+#define VERSION_MINOR 6		  // вторая цифра в версии openGL
+#define WINDOW_RESIZABLE true // разрешение на изменнения маштаба окна
 
 #include "Window.hpp"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-GLFWwindow* Window::window;
+GLFWwindow *Window::window; // объявляем объект окно
+int Window::HEIGHT = 0;
+int Window::WIDTH = 0;
 
-int Window::initializateWindow(const char* title, int width, int height)
+int Window::initializateWindow(const char *title, int width, int height)
 {
+	// инециализируем и проверяем glfw
 	if (glfwInit())
 	{
 		std::cout << "OK: initializate GLFW" << std::endl;
@@ -27,11 +30,13 @@ int Window::initializateWindow(const char* title, int width, int height)
 		std::cerr << "FAILED: initializate GLFW" << std::endl;
 		return -1;
 	}
+	// настраиваем openGL для данного окна
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, VERSION_MAJOR);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, VERSION_MINOR);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	glfwWindowHint(GLFW_RESIZABLE, WINDOW_RESIZABLE);
 
+	// создаём и проверяем окно на ошибки
 	window = glfwCreateWindow(width, height, title, nullptr, nullptr);
 	if (window == nullptr)
 	{
@@ -44,10 +49,13 @@ int Window::initializateWindow(const char* title, int width, int height)
 		std::cout << "OK: to create GLFW Window" << std::endl;
 	}
 
+	// создаём контекст окна
 	glfwMakeContextCurrent(window);
 
+	// включаем эксперементальные возможности
 	glewExperimental = GL_TRUE;
 
+	// инециализируем и проверяем glew
 	GLenum glewErr = glewInit();
 	if (glewErr != GLEW_OK)
 	{
@@ -67,26 +75,27 @@ int Window::initializateWindow(const char* title, int width, int height)
 		std::cout << "OK: initializate GLEW" << std::endl;
 	}
 
+	// уточняем размер окна
 	glViewport(0, 0, width, height);
 }
 
 void Window::terminate()
 {
-	glfwDestroyWindow(window);
-	glfwTerminate();
+	glfwDestroyWindow(window); // удоляем окно
+	glfwTerminate();		   // выходим из glfw
 }
 
 bool Window::isCloseWindow()
 {
-	return glfwWindowShouldClose(window);
+	return glfwWindowShouldClose(window); // получаем состояние окна
 }
 
 void Window::setShouldClose(bool flag)
 {
-	glfwSetWindowShouldClose(window, flag);
+	glfwSetWindowShouldClose(window, flag); // передаём состояние окна
 }
 
 void Window::swapBuffer()
 {
-	glfwSwapBuffers(window);
+	glfwSwapBuffers(window); // сменяем буфферы
 }
