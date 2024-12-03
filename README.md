@@ -118,6 +118,9 @@ Event::Mouse::GetMouseRightButton()
 
 Event::Mouse::GetMouseLeftButton()
 возвращает true если нажать на левую кнопку мыши
+
+Event::Key::getKey[номер клавиши]
+возращает true если клавиша нажата и false если отпущена
 ```
 
 
