@@ -8,7 +8,7 @@
 #ifndef WINDOW_EVENT_HPP_
 #define WINDOW_EVENT_HPP_
 
-#define MAX_KEY_CODE 255
+#define MAX_KEY_CODE 256
 
 // создаём пространство имён
 namespace Event
