@@ -24,8 +24,8 @@ public:
 	// пред объявляем:
 	static void use();												   // функцию для включения шейд-ной программы
 	static void Delete();											   // функцию для удаления шейд-ной программы
-	static void setValueUniformF(const float value, const char *name); // функцию для передачи float uniform переменной в шейдер
-	static void setMatrixUniform(glm::mat4 matrix, const char *name);  // функцию для передачи matrix4 uniform переменной в шейдер
+	static void setValueUniform(const float value, const char *name);  // функцию для передачи float uniform переменной в шейдер
+	static void setValueUniform(glm::mat4 matrix, const char* name);   // функцию для передачи matrix4 uniform переменной в шейдер
 
 	Shader(const char *frag, const char *vert); // конструктор (принимает путь к фраг-му и верш-му шейдеру)
 	~Shader();									// деструктор

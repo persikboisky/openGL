@@ -141,7 +141,7 @@ void Shader::Delete()
     glDeleteProgram(Shader::id);
 }
 
-void Shader::setValueUniformF(const float value, const char* name)
+void Shader::setValueUniform(const float value, const char* name)
 {
     locate = glGetUniformLocation(Shader::id, name);
     if (locate >= 0)
@@ -154,7 +154,7 @@ void Shader::setValueUniformF(const float value, const char* name)
     }
 }
 
-void Shader::setMatrixUniform(glm::mat4 matrix, const char* name)
+void Shader::setValueUniform(glm::mat4 matrix, const char* name)
 {
     locate = glGetUniformLocation(Shader::id, name);
     locate = glGetUniformLocation(Shader::id, name);

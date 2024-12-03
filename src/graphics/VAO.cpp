@@ -54,7 +54,7 @@ void VAO::addVBO(std::vector<float> data)
 
 	glGenBuffers(1, &bufferVBO);
 	glBindBuffer(GL_ARRAY_BUFFER, bufferVBO);
-	glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, 5 * sizeof(float), data.data(), GL_STATIC_DRAW);
 	glVertexAttribPointer(vbo.size(), 3, GL_FLOAT, GL_FALSE, 0, nullptr);
 	glEnableVertexAttribArray(vbo.size());
 	deBind();
