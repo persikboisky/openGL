@@ -46,8 +46,8 @@ width - ширина окна(int)
 height - высота окна(int)
 ```
 ```sh
-Window::terminate() - удоляет окно
-Window::isCloseWindow() - возращает true при закрытие окна
+Window::terminate() - удаляет окно
+Window::isCloseWindow() - возвращает true при закрытие окна
 
 Window::setShouldClose(flag) - закрывает окно
 если в flag передать true то окно закроется
