@@ -79,7 +79,7 @@ shader::setValueUniform(unsigned int id, glm::mat4 matrix, const char* name);
 ## Система JSON
 ```sh
 JSON::getValueFromJSON(const char* PATH, const char* object)
-возврощает значение записанное в json работает только с int, принимает путь и название объекта
+возвращает значение записанное в json, работает только с int переменными, принимает путь и название объекта
 
 ```
 > [!NOTE]
@@ -94,16 +94,16 @@ JSON::getValueFromJSON(const char* PATH, const char* object)
 
 ## Система VAO
 ```sh
-VAO название; - создаёт vao объект с укзаным названием
+VAO название; - создаёт vao объект с указанным названием
 
 название.bind() - включает vao
 название.debind() - выключает vao
 
 addVBO({
-кординаты вершин
+координаты вершин
 }) - добавляет vbo в vao
 
-название.draw(кол-во вершин) - ресует треуголник(и)
+название.draw(кол-во вершин) - рисует треугольник(и)
 3 вершины - один треугольник
 6 вершин - два треугольника
 и тд.
@@ -113,10 +113,10 @@ addVBO({
 ```sh
 Event::update() - обновляет буфер эвентов (проверяет эвенты)
 
-Event::Mouse::GetMouseCordY() - возращант позицию мышки по осиY
+Event::Mouse::GetMouseCordY() - возвращает позицию мышки по осиY
 возвращает значение double
 
-Event::Mouse::GetMouseCordX() - возращант позицию мышки по осиX
+Event::Mouse::GetMouseCordX() - возвращает позицию мышки по осиX
 возвращает значение double
 
 Event::Mouse::GetMouseRightButton()
