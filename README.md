@@ -59,15 +59,21 @@ Window::swapBuffer() - сменяет буфер
 
 ## Система Shader
 ```sh
-CreateShaderProgram::CreateShaderProgram названиеШейдернойПрограммы(const char* vert, const char* frag)
-этот конструктор создаёт шейдерную программу, в него мы передаём путь к вершиному и фрагментному шейдеру
+shader::getShaderProgram(const char* frag, const char* vert);
+возращает дескриптор шейдерной программы и созлаёт её, принемает путь к шейдерам
 
-названиеШейдернойПрограммы.use() - включает шейдерную программу
-названиеШейдернойПрограммы.delete() - удаляет шейдерную программу
+shader::use(unsigned int id);
+включает шейдерную программу, принемает её дескриптор
 
-названиеШейдернойПрограммы.setValueUniformF(const float value, const char* name)
-передаёт значение в uniform переменную в шейдере(значение(float), имя uniform переменной(string))
+shader::Delete(unsigned int id);
+удоляет шейдерную программу, принемает её дескриптор
 
+shader::setValueUniform(unsigned int id, const float value, const char* name);
+shader::setValueUniform(unsigned int id, glm::mat4 matrix, const char* name);
+обе функции имею одинаковые названия,
+первая передаёт float значение в uniform переменую в шейдере,
+вторая передаёт матрицу в uniform переменую в шейдере.
+Принимают дескриптор шейдерной программы, значение, название переменной в шейдере
 ```
 
 ## Система JSON
