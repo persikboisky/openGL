@@ -14,21 +14,13 @@
 typedef unsigned int GLuint;
 
 // создаём класс shader
-class Shader
+struct shader
 {
-private:
-	// пред объявляем переменную для хранения номера шейд-ной программы
-	static unsigned int id;
-
-public:
-	// пред объявляем:
-	static void use();												   // функцию для включения шейд-ной программы
-	static void Delete();											   // функцию для удаления шейд-ной программы
-	static void setValueUniform(const float value, const char *name);  // функцию для передачи float uniform переменной в шейдер
-	static void setValueUniform(glm::mat4 matrix, const char* name);   // функцию для передачи matrix4 uniform переменной в шейдер
-
-	Shader(const char *frag, const char *vert); // конструктор (принимает путь к фраг-му и верш-му шейдеру)
-	~Shader();									// деструктор
+	static unsigned int getShaderProgram(const char* frag, const char* vert);
+	static void use(unsigned int id);												
+	static void Delete(unsigned int id);											
+	static void setValueUniform(unsigned int id, const float value, const char* name);
+	static void setValueUniform(unsigned int id, glm::mat4 matrix, const char* name);
 };
 
 #endif // GRAPHYCS_SHADER_HPP_

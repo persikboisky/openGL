@@ -15,10 +15,6 @@
 #include <sstream>
 #include <iostream>
 
-unsigned int Shader::id;
-GLuint locate;
-// GLuint CreateShaderProgram::BlockIndex;
-
 static std::string readFile(const char* filename)
 {
     std::string text = "";
@@ -121,29 +117,24 @@ GLuint LoadShaders(const char* vertex_file, const char* fragment_file)
     return programID;
 }
 
-Shader::Shader(const char* vert, const char* frag)
+unsigned int shader::getShaderProgram(const char* frag, const char* vert)
 {
-    Shader::id = LoadShaders(vert, frag);
+    return LoadShaders(vert, frag);
 }
 
-Shader::~Shader()
+void shader::use(unsigned int id)
 {
-    Shader::Delete();
+    glUseProgram(id);
 }
 
-void Shader::use()
+void shader::Delete(unsigned int id)
 {
-    glUseProgram(Shader::id);
+    glDeleteProgram(id);
 }
 
-void Shader::Delete()
+void shader::setValueUniform(unsigned int id, const float value, const char* name)
 {
-    glDeleteProgram(Shader::id);
-}
-
-void Shader::setValueUniform(const float value, const char* name)
-{
-    locate = glGetUniformLocation(Shader::id, name);
+    GLint locate = glGetUniformLocation(id, name);
     if (locate >= 0)
     {
         glUniform1f(locate, GLfloat(value));
@@ -154,10 +145,9 @@ void Shader::setValueUniform(const float value, const char* name)
     }
 }
 
-void Shader::setValueUniform(glm::mat4 matrix, const char* name)
+void shader::setValueUniform(unsigned int id, glm::mat4 matrix, const char* name)
 {
-    locate = glGetUniformLocation(Shader::id, name);
-    locate = glGetUniformLocation(Shader::id, name);
+    GLint locate = glGetUniformLocation(id, name);
     if (locate >= 0)
     {
         glUniformMatrix4fv(locate, 1, GL_FALSE, glm::value_ptr(matrix));
