@@ -46,6 +46,9 @@ width - ширина окна(int)
 height - высота окна(int)
 ```
 ```sh
+Window::setWindowIcon(unsigned char* img, int width, int height) - устанавливает иконку окна
+принимает строчку изображения, ширину изображения, высоту изображения
+
 Window::terminate() - удаляет окно
 Window::isCloseWindow() - возвращает true при закрытие окна
 
