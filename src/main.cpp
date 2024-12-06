@@ -1,17 +1,6 @@
 #define WINDOW_NAME "openGL" // имя окна
 
-#include <GL/glew.h>
-#include <glm/glm.hpp>
-#include <glm/ext.hpp>
-#include <iostream>
-
-#include "window/Window.hpp"
-#include "window/Event.hpp"
-#include "window/Camera.hpp"
-#include "graphics/Shader.hpp"
-#include "graphics/VAO.hpp"
-#include "file/JSON.hpp"
-#include "file/PNG.hpp"
+#include "header.h"
 
 const int WINDOW_WIDTH = JSON::getValueFromJSON("./assets/config.json", "display-width");	// получаем из JSON файла ширину окна
 const int WINDOW_HEIGHT = JSON::getValueFromJSON("./assets/config.json", "display-height"); // получаем из JSON файла высоту окна
