@@ -5,13 +5,13 @@
 const int WINDOW_WIDTH = JSON::getValueFromJSON("./assets/config.json", "display-width");	// получаем из JSON файла ширину окна
 const int WINDOW_HEIGHT = JSON::getValueFromJSON("./assets/config.json", "display-height"); // получаем из JSON файла высоту окна
 
-unsigned char* texture = png::loadPNG("./assets/img/test.png");
-const int widthTex = png::width, heightTex = png::height, chanellsTex = png::channels;
+char unsigned* iconWindow = png::loadPNG("./assets/img/icon.png");
 
 int main()
 {
 
 	Window::initializateWindow(WINDOW_NAME, WINDOW_WIDTH, WINDOW_HEIGHT);		// создаём окно
+	Window::setWindowIcon(iconWindow, png::width, png::height);
 	Event::Init();																// инициализируем
 	unsigned int shaderPR = shader::getShaderProgram("./assets/shaders/main.glslf", "./assets/shaders/main.glslv");
 

@@ -79,6 +79,17 @@ int Window::initializateWindow(const char *title, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
+void Window::setWindowIcon(unsigned char* img, int width, int height)
+{
+	GLFWimage images[1];
+	images[0].width = width;
+	images[0].height = height;
+	images[0].pixels = img;
+
+	glfwSetWindowIcon(window, 1, images);
+	free(images[0].pixels);
+}
+
 void Window::terminate()
 {
 	glfwDestroyWindow(window); // удоляем окно

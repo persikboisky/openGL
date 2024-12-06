@@ -20,6 +20,7 @@ public:
 	static int WIDTH;														 // хранит ширину окна
 	static int HEIGHT;														 // хранит высоту окна
 	static int initializateWindow(const char *title, int width, int height); // инициализация окна
+	static void setWindowIcon(unsigned char* img, int width, int height);
 	static void terminate();												 // удоление окна
 	static void swapBuffer();												 // смена буфера
 	static bool isCloseWindow();											 // проверка эвента закрытия окна
