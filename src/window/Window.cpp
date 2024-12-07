@@ -49,6 +49,9 @@ int Window::initializateWindow(const char *title, int width, int height)
 		std::cout << "OK: to create GLFW Window" << std::endl;
 	}
 
+	WIDTH = width;
+	HEIGHT = height;
+
 	// создаём контекст окна
 	glfwMakeContextCurrent(window);
 

@@ -15,6 +15,9 @@ int main()
 	Event::Init();																// инициализируем
 	unsigned int shaderPR = shader::getShaderProgram("./assets/shaders/main.glslf", "./assets/shaders/main.glslv");
 
+	char unsigned* pixel = png::loadPNG("./assets/img/test.png");
+	int widthT = png::width, heightT = png::height, channels = png::channels;
+
 	float vertices[] = {
 		// x    y     z     u     v
 		-1.0f, -1.0f, 0.0f, 0.0f, 0.0f,
@@ -28,6 +31,9 @@ int main()
 
 	// Create VAO
 	GLuint VAO, VBO;
+
+	texture::addTexture(pixel, widthT, heightT, channels);
+
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
 
@@ -42,29 +48,32 @@ int main()
 
 	glBindVertexArray(0);
 
-	glm::mat4 matrix(1.0f);
-	matrix = glm::scale(matrix, glm::vec3(0.5f, 0.5f, 0.5f));
+	glm::mat4 matrix(1.0f), model(1.0f);
+	model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
 
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f); // красим фон
 	while (!Window::isCloseWindow())	  // главный цикл и проверка состояния окна
 	{
+
 		Event::update();			  // проверяем эвенты
 		glClear(GL_COLOR_BUFFER_BIT); // чистим цветовой буфер
 
 		shader::use(shaderPR);
-		shader::setValueUniform(shaderPR, 1.0f, "red");	  
-		shader::setValueUniform(shaderPR, 0.5f, "green");
-		shader::setValueUniform(shaderPR, 0.5f, "blue");
+		texture::use(0);
 		shader::setValueUniform(shaderPR, matrix, "matrix");
+		shader::setValueUniform(shaderPR, model, "model");
+
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 6);
 		glBindVertexArray(0);
-		Window::swapBuffer(); // меняем буффера
+
+		Window::swapBuffer(); // меняем буфера
 
 		//std::cout << Event::Key::getKey[87] << std::endl;
 	}
 
-	shader::Delete(shaderPR);		 // удоляем шейдерную прогрумму
-	Window::terminate(); // удоляем окно
+	texture::allDelete(); 
+	shader::Delete(shaderPR);		 // удаляем шейдерную программу
+	Window::terminate(); // удаляем окно
 	return 0;
 }
