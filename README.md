@@ -177,6 +177,7 @@ texture::setPosition(double x, double y); - Перемещает курсор в
 
 
 ## Система Camera
+```sh
 Camera название(glm::vec3 pos, float fov);
 создаёт камеру, принимает позицию в виде vec3 и полезрение в виде float
 
@@ -186,6 +187,7 @@ Camera название(glm::vec3 pos, float fov);
 
 название.getView(); - возвращаетВозвращает матрицу вида камеры
 название.glm::mat4 getProj(); - Возвращает матрицу проекции камеры
+```
 
 
 
