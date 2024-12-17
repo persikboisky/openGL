@@ -10,13 +10,15 @@
 #define WINDOW_RESIZABLE true // разрешение на изменнения маштаба окна
 
 #include "Window.hpp"
+#include "../load/PNG.hpp"
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
 
 GLFWwindow *Window::window; // объявляем объект окно
-int Window::HEIGHT = 0;
-int Window::WIDTH = 0;
+int Window::height = 0;
+int Window::width = 0;
 
 int Window::initializateWindow(const char *title, int width, int height)
 {
@@ -49,8 +51,8 @@ int Window::initializateWindow(const char *title, int width, int height)
 		std::cout << "OK: to create GLFW Window" << std::endl;
 	}
 
-	WIDTH = width;
-	HEIGHT = height;
+	Window::width = width;
+	Window::height = height;
 
 	// создаём контекст окна
 	glfwMakeContextCurrent(window);
@@ -82,9 +84,13 @@ int Window::initializateWindow(const char *title, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-void Window::setWindowIcon(unsigned char* img, int width, int height)
+void Window::setWindowIcon(const char* path)
 {
 	GLFWimage images[1];
+
+	int width, height, channels;
+	unsigned char* img = png::loadPNG(path, width, height, channels);
+
 	images[0].width = width;
 	images[0].height = height;
 	images[0].pixels = img;
@@ -97,11 +103,6 @@ void Window::terminate()
 {
 	glfwDestroyWindow(window); // удоляем окно
 	glfwTerminate();		   // выходим из glfw
-}
-
-bool Window::isCloseWindow()
-{
-	return glfwWindowShouldClose(window); // получаем состояние окна
 }
 
 void Window::setShouldClose(bool flag)

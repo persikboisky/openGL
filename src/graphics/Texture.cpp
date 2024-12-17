@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 #include "Texture.hpp"
+#include "../load/PNG.hpp"
 
 std::vector<GLuint> texture::id;
 
@@ -15,6 +16,24 @@ void texture::use(int n)
 	{
 		glBindTexture(GL_TEXTURE_2D, id[n]);
 	}
+}
+
+void texture::useByID(unsigned int id)
+{
+	bool flag = false;
+	unsigned char size = texture::id.size();
+	for (int i = 0; i < size; i++)
+	{
+		if (texture::id[i] != id) flag = false;
+		else
+		{
+			flag = true;
+			i = size;
+		}
+	}
+
+	if (flag) glBindTexture(GL_TEXTURE_2D, id);
+	else std::cerr << "Failed bind texture: " << id << std::endl;
 }
 
 int texture::addTexture(unsigned char* texture, int width, int height, int channels)
@@ -53,6 +72,15 @@ int texture::addTexture(unsigned char* texture, int width, int height, int chann
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	return 1;
+}
+
+unsigned int texture::loadText(const char* path)
+{
+	int textConfig[3];
+	unsigned char* text = png::loadPNG(path, textConfig[0], textConfig[1], textConfig[2]);
+	unsigned int id = texture::addTexture(text, textConfig[0], textConfig[1], textConfig[2]);
+	png::Delete(text);
+	return id;
 }
 
 void texture::Delete(GLuint n)

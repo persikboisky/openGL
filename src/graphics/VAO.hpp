@@ -1,24 +1,17 @@
-/*
-* VAO.hpp
-*
-* Created on Nov 30, 2024
-*         Author: persikboisky
-*/
+#ifndef GRAPHICS_VAO_HPP_
+#define GRAPHICS_VAO_HPP_
 
 #include <vector>
 
-typedef int GLsizei;
-typedef unsigned int GLuint;
-
-class VAO
+struct vao
 {
-public:
-	static GLuint vao;
-	static std::vector<GLuint> vbo;
-	VAO();
-	~VAO();
-	static void bind();
-	static void deBind();
-	static void addVBO(std::vector<float> data);
-	static void draw(GLsizei count);
+    static int nVertex;
+    static unsigned int create(const std::vector<float>& data);
+    //static unsigned int create(float data[]);
+    static void bind(unsigned int  id);
+    static void DrawArrays(unsigned int mode, int first, unsigned int count);
+    static void deBind();
+    static void Delete(unsigned int id);
 };
+
+#endif // GRAPHICS_VAO_HPP_

@@ -15,6 +15,8 @@
 #include <sstream>
 #include <iostream>
 
+unsigned int shader::id;
+
 static std::string readFile(const char* filename)
 {
     std::string text = "";
@@ -117,12 +119,17 @@ GLuint LoadShaders(const char* vertex_file, const char* fragment_file)
     return programID;
 }
 
+void shader::select(unsigned int id)
+{
+    shader::id = id;
+}
+
 unsigned int shader::getShaderProgram(const char* frag, const char* vert)
 {
     return LoadShaders(vert, frag);
 }
 
-void shader::use(unsigned int id)
+void shader::use()
 {
     glUseProgram(id);
 }
@@ -132,7 +139,7 @@ void shader::Delete(unsigned int id)
     glDeleteProgram(id);
 }
 
-void shader::setValueUniform(unsigned int id, const float value, const char* name)
+void shader::setValueUniform(const float value, const char* name)
 {
     GLint locate = glGetUniformLocation(id, name);
     if (locate >= 0)
@@ -145,7 +152,7 @@ void shader::setValueUniform(unsigned int id, const float value, const char* nam
     }
 }
 
-void shader::setValueUniform(unsigned int id, glm::mat4 matrix, const char* name)
+void shader::setValueUniform(glm::mat4 matrix, const char* name)
 {
     GLint locate = glGetUniformLocation(id, name);
     if (locate >= 0)

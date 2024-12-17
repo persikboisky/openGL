@@ -8,20 +8,21 @@
 #ifndef WINDOW_EVENT_HPP_
 #define WINDOW_EVENT_HPP_
 
-#define MAX_KEY_CODE 256
+#define MAX_KEY_CODE 360
 
 // создаём пространство имён
 namespace Event
 {
-	void Init();		 // функция инициализации
-	void update();		 // функция проверки эвентов
-	static struct Mouse; // предобявление структуры с функциями для мышь
-	static struct Key;
+	void Init(); // функция инициализации
+	bool isCloseWindow();
+	void update(); // функция проверки эвентов
+	struct mouse;  // предобявление структуры с функциями для мыши
+	struct key;
 
 	// static struct Key;
 };
 
-struct Event::Mouse
+struct Event::mouse
 {
 	// пред объявляем:
 	static double GetMouseCordY();	   // функция определяющая кординату курсора по осиY
@@ -30,11 +31,11 @@ struct Event::Mouse
 	static bool GetMouseRightButton(); // функция проверяющая нажатие правой кнопки мыши
 };
 
-struct Event::Key
+struct Event::key
 {
-public:
-	// const unsigned char maxKey = MAX_KEY_CODE;
-	static bool getKey[MAX_KEY_CODE];
+	static bool Key[MAX_KEY_CODE];
+	static void init();
+	static bool getKey(int keyCode);
 };
 
 #endif // !WINDOW_EVENT_HPP_

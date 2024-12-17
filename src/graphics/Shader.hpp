@@ -16,11 +16,13 @@ typedef unsigned int GLuint;
 // создаём класс shader
 struct shader
 {
+	static unsigned int id;
 	static unsigned int getShaderProgram(const char* frag, const char* vert);
-	static void use(unsigned int id);												
+	static void select(unsigned int id);
+	static void use();												
 	static void Delete(unsigned int id);											
-	static void setValueUniform(unsigned int id, const float value, const char* name);
-	static void setValueUniform(unsigned int id, glm::mat4 matrix, const char* name);
+	static void setValueUniform(const float value, const char* name);
+	static void setValueUniform(glm::mat4 matrix, const char* name);
 };
 
 #endif // GRAPHYCS_SHADER_HPP_

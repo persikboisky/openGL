@@ -1,78 +1,66 @@
-/*
-* VAO.hpp
-*
-* Created on Nov 30, 2024
-*         Author: persikboisky
-*/
-
-
-#include "VAO.hpp"
-
 #include <GL/glew.h>
 #include <iostream>
-#include <vector>
+#include "VAO.hpp"
 
-GLuint VAO::vao;
-std::vector<GLuint> VAO::vbo;
-
-float verticies[] = {
-	//x      y      z
-	-0.5f,  0.5f,  0.0f,
-	-0.5f, -0.5f,  0.0f,
-	 0.5f, -0.5f,  0.0f,
-
-	-0.5f,  0.5f,  0.0f,
-	 0.5f,  0.5f,  0.0f,
-	 0.5f, -0.5f,  0.0f
-};
-
-VAO::VAO()
+unsigned int vao::create(const std::vector<float>& data)
 {
-	glGenVertexArrays(1, &vao);
+    unsigned int VAO, VBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, data.size() * sizeof(float), data.data(), GL_STATIC_DRAW);
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid *)(0 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(0);
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid *)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+
+    glBindVertexArray(0);
+    return VAO;
 }
 
-VAO::~VAO()
+//unsigned int vao::create(float data[])
+//{
+//
+//    float* Data = data;
+//
+//    unsigned int VAO, VBO;
+//    glGenVertexArrays(1, &VAO);
+//    glGenBuffers(1, &VBO);
+//
+//    glBindVertexArray(VAO); 
+//
+//    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+//    glBufferData(GL_ARRAY_BUFFER, 3 * sizeof(float), Data, GL_STATIC_DRAW);
+//
+//    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(0 * sizeof(GLfloat)));
+//    glEnableVertexAttribArray(0);
+//    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+//    glEnableVertexAttribArray(1);
+//
+//    glBindVertexArray(0);
+//    return VAO;
+//}
+
+void vao::bind(unsigned int  id)
 {
-	glDeleteVertexArrays(vbo.size(), &vao);
-	glDeleteVertexArrays(1, &vao);
+    glBindVertexArray(id);
 }
 
-void VAO::bind()
+void vao::DrawArrays(unsigned int mode, int first, unsigned int count)
 {
-	glBindVertexArray(vao);
+    glDrawArrays(mode, first, count);
 }
 
-void VAO::deBind()
+void vao::deBind()
 {
-	glBindVertexArray(0);
+    glBindVertexArray(0);
 }
 
-void VAO::addVBO(std::vector<float> data)
+void vao::Delete(unsigned int id)
 {
-	GLuint bufferVBO;
-	bind();
-
-	glGenBuffers(1, &bufferVBO);
-	glBindBuffer(GL_ARRAY_BUFFER, bufferVBO);
-	glBufferData(GL_ARRAY_BUFFER, 5 * sizeof(float), data.data(), GL_STATIC_DRAW);
-	glVertexAttribPointer(vbo.size(), 3, GL_FLOAT, GL_FALSE, 0, nullptr);
-	glEnableVertexAttribArray(vbo.size());
-	deBind();
-	vbo.push_back(bufferVBO);
+    glDeleteVertexArrays(1, &id);
 }
-
-void VAO::draw(GLsizei count)
-{
-	for (int i = 0; i < vbo.size(); i++) 
-	{
-		glEnableVertexAttribArray(i);
-	}
-	glBindVertexArray(vao);
-	glDrawArrays(GL_TRIANGLES, 0, count);
-	glBindVertexArray(0);
-
-	for (int i = 0; i < vbo.size(); i++) 
-	{
-		glDisableVertexAttribArray(i);
-	}
-} 
