@@ -82,7 +82,7 @@ shader::Delete(unsigned int id) удаляет шейдерную програм
 
 ## Система JSON
 ```sh
-JSON::getValueFromJSON(const char* PATH, const char* object)
+json::getValueFromJSON(const char* PATH, const char* object)
 возвращает значение записанное в json, работает только с int переменными, принимает путь и название объекта
 
 ```
@@ -98,23 +98,23 @@ JSON::getValueFromJSON(const char* PATH, const char* object)
 
 ## Система VAO
 ```sh
-VAO название; - создаёт vao объект с указанным названием
+vao::create(const std::vector<float>& data)
+создаёт vao, возвращает дескриптор vao, принимает вектор вершин(одна вершина имеет кординаты(x, y, z, u, v))
 
-название.bind() - включает vao
-название.debind() - выключает vao
+vao::bind(unsigned int id)
+Выбирает vao, принимает дискриптор
 
-addVBO({
-координаты вершин
-}) - добавляет vbo в vao
+vao::DrawArrays(unsigned int mode, int first, unsigned int count);
+Рисует выбранный vao, принимает вид примитива, начальную вершину, конечную
 
-название.draw(кол-во вершин) - рисует треугольник(и)
-3 вершины - один треугольник
-6 вершин - два треугольника
-и тд.
+vao::deBind(); выключает vao
+vao::Delete(unsigned int id); Удаляет vao, принимает дискриптор
 ```
 
 ## Система Event
 ```sh
+Event::Init(); Включает систему evеnt
+Event::isCloseWindow(); Проверяет окно на закрытие и возвращает true если поступила команда закрытия окна
 Event::update() - обновляет буфер эвентов (проверяет эвенты)
 
 Event::Mouse::GetMouseCordY() - возвращает позицию мышки по осиY
@@ -129,8 +129,8 @@ Event::Mouse::GetMouseRightButton()
 Event::Mouse::GetMouseLeftButton()
 возвращает true если нажать на левую кнопку мыши
 
-Event::Key::getKey[номер клавиши]
-возвращает true если клавиша нажата, и false если отпущена
+Event::Key::init(); Включает систему клавиш
+Event::Key::getKey(int keyCode); возвращает true если клавиша нажата, и false если отпущена, принимает код клавиш
 ```
 
 ## Система PNG
@@ -144,7 +144,24 @@ png::width, png::height, png::channels;
 > [!NOTE]
 > при загрузки нового изображения, все переменные структуры png будут перезаписана
 
+## Система Texture
+```sh
+texture::addTexture(unsigned char* texture, int width, int height, int channels);
+Возвращает дискриптор png текстуры
+Принимает код png текстуры
+принимает ширину, высоты, кол-во каналов в текстуре
 
+unsigned int loadText(const char* path);
+Делает тоже самое что и верхняя функция, только проще 
+Возвращает дискриптор, принимает путь к png файлу
+
+texture::use(int n); - принимает номер текстуры
+texture::useByID(unsigned int id); - принимает дискриптор тестуры
+Одна и другая выбирают текстуру
+
+texture::Delete(GLuint id); - удаляет по дискриптору текстуру
+texture::allDelete(); - удаляет все текстуры
+```
 
 
 
