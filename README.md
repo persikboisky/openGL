@@ -46,8 +46,8 @@ width - ширина окна(int)
 height - высота окна(int)
 ```
 ```sh
-Window::setWindowIcon(unsigned char* img, int width, int height) - устанавливает иконку окна
-принимает строчку изображения, ширину изображения, высоту изображения
+Window::setWindowIcon(const char* path) - устанавливает иконку окна
+принимает путь к png файлу
 
 Window::terminate() - удаляет окно
 Window::isCloseWindow() - возвращает true при закрытие окна
@@ -56,6 +56,8 @@ Window::setShouldClose(flag) - закрывает окно
 если в flag передать true то окно закроется
 
 Window::swapBuffer() - сменяет буфер
+
+Window::width, Window::height - Эти переменные хранят соответственно ширину и высоту окна
 ```
 > [!TIP]
 > в openGL двойная буферизация, то есть на одном мы рисуем, а второй выводится на экран 
@@ -65,18 +67,17 @@ Window::swapBuffer() - сменяет буфер
 shader::getShaderProgram(const char* frag, const char* vert);
 возвращает дескриптор шейдерной программы и создаёт её, принимает путь к шейдерам
 
-shader::use(unsigned int id);
-включает шейдерную программу, принимает её дескриптор
+shader::select(unsigned int id) Принимает дескриптор шейд-граммы и выбирает её для работы
+shader::use() включает выбранную программу
 
-shader::Delete(unsigned int id);
-удаляет шейдерную программу, принимает её дескриптор
-
-shader::setValueUniform(unsigned int id, const float value, const char* name);
-shader::setValueUniform(unsigned int id, glm::mat4 matrix, const char* name);
+shader::setValueUniform(const float value, const char* name);
+shader::setValueUniform(glm::mat4 matrix, const char* name);
 обе функции имею одинаковые названия,
-первая передаёт float значение в uniform переменную в шейдере,
-вторая передаёт матрицу в uniform переменную в шейдере.
-Принимают дескриптор шейдерной программы, значение, название переменной в шейдере
+первая передаёт float значение в uniform переменную выбранного шейдера,
+вторая передаёт матрицу в uniform переменную выбранного шейдера.
+Принимают значение, название переменной в шейдере
+
+shader::Delete(unsigned int id) удаляет шейдерную программу, принимает её дескриптор
 ```
 
 ## Система JSON
